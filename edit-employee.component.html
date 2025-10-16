@@ -1,0 +1,63 @@
+<div style="font-family: calibri;">
+    <div style="width: 50%;padding: 20px;margin: 20px;">
+        <div>Enter Employee Id</div>
+        <div><input type="text" [(ngModel)]="searchId" /></div>
+    </div>
+    <div><button (click)="search()">Search Employee</button></div>
+
+
+    <div>
+        <form #frm="ngForm" (ngSubmit)="editEmployee(frm.value)">
+        <div style="padding: 3px;">
+            <div>
+                <div>Name</div>
+                <div><input type="hidden" class="form-control" [(ngModel)]=empFound.id name="id"/>
+                </div>
+            </div>
+            <div>
+                <div>Name</div>
+                <div><input type="text" class="form-control" [(ngModel)]=empFound.name name="name"/>
+                </div>
+            </div>
+             <div>
+                <div>Email</div>
+                <div><input type="text" class="form-control" [(ngModel)]=empFound.email name="email"/>
+                </div>
+            </div>
+             <div>
+                <div>Mobile</div>
+                <div><input type="text" class="form-control" [(ngModel)]=empFound.mobile name="mobile"/>
+                </div>
+            </div>
+             <div>
+                <div>skillSet</div>
+                <div><input type="text" class="form-control" [(ngModel)]=empFound.skillSet name="skillSet"/>
+                </div>
+            </div>
+             <div>
+                <div>Password</div>
+                <div><input type="text" class="form-control" [(ngModel)]=empFound.password name="password"/>
+                </div>
+            </div>
+            <div>
+                <div>DepartmentName</div>
+                <div><!--<input type="text" class="form-control" [(ngModel)]=emp.departmentId name="departmentId"/>-->
+                    <select [(ngModel)]="empFound.departmentId" name="departmentId" class="form-control">
+                        <option *ngFor="let d of depts" [value]="d.id">
+                            {{d.departmentName}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary form-control">save</button>
+            </div>
+
+        </div>
+        </form>
+        <div [style.color]="isUpdated?'green':'red'">
+            <span>{{msg}}</span>
+        </div>
+         
+    </div>
+</div>

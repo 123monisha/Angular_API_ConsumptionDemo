@@ -1,0 +1,51 @@
+<div style="padding: 20px; margin: 10px; ">
+    <div style="width: 50%;">
+        <div><h3>Employee Regstration...</h3></div>
+        <form #frm="ngForm" (ngSubmit)="addEmployee(frm.value)">
+        <div style="padding: 3px;">
+            <div>
+                <div>Name</div>
+                <div><input type="text" class="form-control" [(ngModel)]=emp.name name="name"/>
+                </div>
+            </div>
+             <div>
+                <div>Email</div>
+                <div><input type="text" class="form-control" [(ngModel)]=emp.email name="email"/>
+                </div>
+            </div>
+             <div>
+                <div>Mobile</div>
+                <div><input type="text" class="form-control" [(ngModel)]=emp.mobile name="mobile"/>
+                </div>
+            </div>
+             <div>
+                <div>skillSet</div>
+                <div><input type="text" class="form-control" [(ngModel)]=emp.skillSet name="skillSet"/>
+                </div>
+            </div>
+             <div>
+                <div>Password</div>
+                <div><input type="text" class="form-control" [(ngModel)]=emp.password name="password"/>
+                </div>
+            </div>
+            <div>
+                <div>DepartmentName</div>
+                <div><!--<input type="text" class="form-control" [(ngModel)]=emp.departmentId name="departmentId"/>-->
+                    <select [(ngModel)]="emp.departmentId" name="departmentId" class="form-control">
+                        <option *ngFor="let d of depts" [value]="d.id">
+                            {{d.departmentName}}
+                        </option>
+                    </select>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary form-control">save</button>
+            </div>
+
+        </div>
+        </form>
+    </div>
+<div>
+    <span>{{msg}}</span>
+</div>
+</div>
